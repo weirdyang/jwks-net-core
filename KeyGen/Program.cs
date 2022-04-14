@@ -53,9 +53,8 @@ namespace KeyGen
             JweRecipient client = new JweRecipient(JweAlgorithm.ECDH_ES_A256KW, encJwk);
             var secretStuff = JWE.Encrypt(clientAssertionToken,new[] { client }, JweEncryption.A256CBC_HS512);
 
-            string myToken = Jose.JWT.Encode(secretStuff, signJwk, JweAlgorithm.ECDH_ES_A256KW, JweEncryption.A128CBC_HS256);
             // decrypt
-            var results = JWE.Decrypt(encryptedIdToken, encJwk).Plaintext;
+            var results = JWE.Decrypt(secretStuff, encJwk).Plaintext;
 
             // validate
             var sgpPublicKey = JwkSet.FromJson(singpassKeys, Jose.JWT.DefaultSettings.JsonMapper);
