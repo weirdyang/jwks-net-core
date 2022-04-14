@@ -49,9 +49,6 @@ namespace KeyGen
 
             // data is a JWS in JWE
             // encrypted using the public JWK from the encJwk
-            var encryptedIdToken = @"eyJraWQiOiJuZGlfc3RnXzAxIiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJhdWQiOiJ5MVRzZkk4Zk5LM0tyblYwUVVETnZzdzFOU1RFY1RCbSIsInN1YiI6InM9Uzg4MjkzMTRCLHU9MWMwY2VlMzgtM2E4Zi00ZjhhLTgzYmMtN2EwZTRjNTlkNmE5IiwiYW1yIjpbInB3ZCIsInN3ayJdLCJpc3MiOiJodHRwczpcL1wvc3RnLWlkLnNpbmdwYXNzLmdvdi5zZyIsImV4cCI6MTY0OTgzNjk5MSwiaWF0IjoxNjQ5ODM2MzkxLCJub25jZSI6InNxY2RMa1wvcUd6R2hicWNJYm9ycjNcL3doWTFXRTJudkxmanRLcnlrNlpsTT0ifQ.XS2mwAjEIKkJqYgW74SDV1iHyrobcnE9dLZ2maPk8RegGmE0K1EBvKjNOi907j0LW2dlpX9hbBToqGjA2DUeDg";
-
-
             // we simulate it
             JweRecipient client = new JweRecipient(JweAlgorithm.ECDH_ES_A256KW, encJwk);
             var secretStuff = JWE.Encrypt(clientAssertionToken,new[] { client }, JweEncryption.A256CBC_HS512);
